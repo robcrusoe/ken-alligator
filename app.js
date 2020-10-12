@@ -5,7 +5,10 @@ const app = express();
 const PORT = 3000;
 
 app.get('/', (req, res) => {
-    return res.send(`A get request with / route on port ${PORT}`);
+    // return res.send(`A get request with / route on port ${PORT}`);
+
+    /* GET the data first and then send it to client */
+    return res.json(data);
 });
 
 
