@@ -33,6 +33,13 @@ app.get('/item/:id', (req, res, next) => {
 });
 
 
+app.get('/item', (req, res) => {
+    res.download('images/master.jpg');
+    // res.redirect('http://www.linkedin.com');
+    // res.end();
+});
+
+
 app.post('/newItem', (req, res) => {
     res.send(`A post request with /newItem route on port ${PORT}`);
 });
