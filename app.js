@@ -17,22 +17,31 @@ app.get('/', (req, res) => {
     // return res.send(`A get request with / route on port ${PORT}`);
 
     /* GET the data first and then send it to client */
-    return res.json(data);
+    res.json(data);
+});
+
+
+app.get('/item/:id', (req, res) => {
+    console.log(req.params.id);
+
+    /* Converts the param (id) of type 'string' to type 'number' */
+    let userId = Number(req.params.id);
+    res.send(data[userId - 1]);
 });
 
 
 app.post('/newItem', (req, res) => {
-    return res.send(`A post request with /newItem route on port ${PORT}`);
+    res.send(`A post request with /newItem route on port ${PORT}`);
 });
 
 
 app.put('/item', (req, res) => {
-    return res.send(`A put request with /item route on port ${PORT}`);
+    res.send(`A put request with /item route on port ${PORT}`);
 });
 
 
 app.delete('/item', (req, res) => {
-    return res.send(`A delete request with /item route on port ${PORT}`);
+    res.send(`A delete request with /item route on port ${PORT}`);
 });
 
 
