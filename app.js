@@ -21,12 +21,15 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/item/:id', (req, res) => {
+app.get('/item/:id', (req, res, next) => {
     console.log(req.params.id);
 
     /* Converts the param (id) of type 'string' to type 'number' */
     let userId = Number(req.params.id);
     res.send(data[userId - 1]);
+    next();
+}, (req, res) => {
+    console.log('Did you get the right data?');
 });
 
 
