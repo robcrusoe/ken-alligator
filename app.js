@@ -4,6 +4,15 @@ import data from './data/data.json';
 const app = express();
 const PORT = 3000;
 
+
+/* Adds middleware for the 'public' folder on path '/' */
+app.use(express.static('public/images'));
+
+
+/* Adds middleware for the 'images' folder on path '/images' */
+app.use('/images', express.static('images'));
+
+
 app.get('/', (req, res) => {
     // return res.send(`A get request with / route on port ${PORT}`);
 
