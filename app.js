@@ -55,6 +55,22 @@ app.delete('/item', (req, res) => {
 });
 
 
+/* Chaining Routes */
+app.route('/way')
+    .get((req, res) => {
+        res.send(`A get request with /way route on Port ${PORT}`);
+    })
+    .put((req, res) => {
+        res.send(`A put request with /way route on Port ${PORT}`);
+    })
+    .delete((req, res) => {
+        res.send(`A delete request with /way route on Port ${PORT}`);
+    })
+    .post((req, res) => {
+        res.send(`A post request with /way route on Port ${PORT}`);
+    });
+
+
 app.listen(PORT, () => {
     console.log(data);
     console.log(`Your server is running on PORT ${PORT}`);
