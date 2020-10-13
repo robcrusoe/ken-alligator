@@ -4,7 +4,8 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "start": "nodemon ./app.js --exec babel-node -e js"
+    "start": "nodemon ./app.js --exec babel-node -e js",
+    "debug": "set DEBUG=express:* & nodemon ./app.js --exec babel-node -e js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
