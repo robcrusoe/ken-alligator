@@ -1,8 +1,14 @@
 import express from 'express';
+import favicon from 'serve-favicon';
+import path from 'path';
 import data from './data/data.json';
 
 const app = express();
 const PORT = 3000;
+
+
+/* Using third-party middleware -> 'serve-favicon' */
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 
 /* Adds middleware for the 'public' folder on path '/' */
