@@ -15,7 +15,12 @@ app.use('/images', express.static('images'));
 
 /* Using built-in middlewares */
 // 'express.json()' -> Method to use JSON
-app.use(express.json());
+// app.use(express.json());
+
+// 'express.urlencoded()' -> Method to use URLEncoded
+app.use(express.urlencoded({
+    extended: true
+}));
 
 
 app.post('/newWay', (req, res) => {
