@@ -11,6 +11,10 @@ const PORT = 3000;
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 
+/* This is for proxies */
+app.set('trust-proxy', 'loopback');
+
+
 /* Adds middleware for the 'public' folder on path '/' */
 app.use(express.static('public/images'));
 
