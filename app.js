@@ -13,6 +13,17 @@ app.use(express.static('public/images'));
 app.use('/images', express.static('images'));
 
 
+/* Using built-in middlewares */
+// 'express.json()' -> Method to use JSON
+app.use(express.json());
+
+
+app.post('/newWay', (req, res) => {
+    console.log(req.body);
+    res.send(req.body);
+});
+
+
 app.get('/', (req, res) => {
     // return res.send(`A get request with / route on port ${PORT}`);
 
@@ -26,6 +37,9 @@ app.get('/item/:id', (req, res, next) => {
 
     /* Converts the param (id) of type 'string' to type 'number' */
     let userId = Number(req.params.id);
+
+
+    /* Everything above this is 'middleware' */
     res.send(data[userId - 1]);
     next();
 }, (req, res) => {
