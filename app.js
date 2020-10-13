@@ -53,9 +53,11 @@ app.get('/item/:id', (req, res, next) => {
 
 
 app.get('/item', (req, res) => {
-    res.download('images/master.jpg');
+    // res.download('images/master.jpg');
     // res.redirect('http://www.linkedin.com');
     // res.end();
+
+    throw new Error();
 });
 
 
@@ -88,6 +90,15 @@ app.route('/way')
     .post((req, res) => {
         res.send(`A post request with /way route on Port ${PORT}`);
     });
+
+
+/* Error handling sub-routine */
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send({
+        'error': 'Red Alert'
+    });
+});
 
 
 app.listen(PORT, () => {
